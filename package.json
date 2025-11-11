@@ -114,6 +114,8 @@
         "arrowParens": "always"
     },
     "overrides": {
-        "colors": "1.4.0"
+        "colors": "1.4.0",
+        "tough-cookie": "6.0.0",
+        "form-data": "4.0.4"
     }
 }
