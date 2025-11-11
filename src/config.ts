@@ -8,7 +8,6 @@ import path from 'node:path';
 import { Headers, RequestInit } from 'node-fetch';
 import { RequestContext } from './api.js';
 import { Authenticator } from './auth.js';
-import { AzureAuth } from './azure_auth.js';
 import {
     Cluster,
     ConfigOptions,
@@ -23,7 +22,6 @@ import {
 } from './config_types.js';
 import { ExecAuth } from './exec_auth.js';
 import { FileAuth } from './file_auth.js';
-import { GoogleCloudPlatformAuth } from './gcp_auth.js';
 import {
     AuthMethodsConfiguration,
     Configuration,
@@ -58,13 +56,7 @@ function fileExists(filepath: string): boolean {
 export interface ApiType {}
 
 export class KubeConfig implements SecurityAuthentication {
-    private authenticators: Authenticator[] = [
-        new AzureAuth(),
-        new GoogleCloudPlatformAuth(),
-        new ExecAuth(),
-        new FileAuth(),
-        new OpenIDConnectAuth(),
-    ];
+    private authenticators: Authenticator[] = [new ExecAuth(), new FileAuth(), new OpenIDConnectAuth()];
 
     // List of custom authenticators that can be added by the user
     private custom_authenticators: Authenticator[] = [];
