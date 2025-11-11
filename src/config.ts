@@ -41,8 +41,6 @@ function fileExists(filepath: string): boolean {
 
 export class KubeConfig {
     private authenticators: Authenticator[] = [
-        new AzureAuth(),
-        new GoogleCloudPlatformAuth(),
         new ExecAuth(),
         new FileAuth(),
         new DelayedOpenIDConnectAuth(),

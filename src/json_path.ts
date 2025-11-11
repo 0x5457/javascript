@@ -1,10 +1,4 @@
-import { JSONPath } from 'jsonpath-plus';
 
 export function jsonpath(path: string, json: object): any {
-    return JSONPath({
-        path,
-        json,
-
-        eval: false,
-    });
+    throw new Error('jsonpath is not implemented');
 }
